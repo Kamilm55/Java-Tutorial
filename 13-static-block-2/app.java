@@ -2,7 +2,7 @@ class Employee
 {
     String name = "emp";
     // int numberOfEmp = 0;// non-Static TYPE
-    static int numberOfEmp = 0;// nonStatic TYPE
+    static int numberOfEmp = 0;// Static TYPE
 
    // Static means it belongs to all subclasses
    // we can access with class name Employee.number
@@ -16,8 +16,8 @@ class Employee
 
     public Employee()
     {
-    System.out.println("in constructor");
-     numberOfEmp++;
+        System.out.println("in constructor");
+        numberOfEmp++;
     }
 
     void show()
