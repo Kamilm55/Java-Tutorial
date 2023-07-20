@@ -13,7 +13,6 @@ class A /* extends Object */ // Every class extends Object
     public A(String name) //parameterized
     {
         // super()
-        
         System.out.println("In parameterized A constructor");
     }
 }
