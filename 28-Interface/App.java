@@ -5,6 +5,7 @@
 // It is used to achieve abstraction and multiple inheritance in Java.
 // In other words, you can say that interfaces can have abstract methods and variables.
 // It cannot have a method body.
+// Multiple interfaces can be implemented by one class 
 
 interface MediaTools
 {
@@ -49,7 +50,7 @@ class Phone implements PortableMedia
     }
     
 }
-class Tv implements MediaTools
+class Tv implements MediaTools /* , A */
 {
     @Override
     public void show() {
