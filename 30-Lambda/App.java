@@ -7,6 +7,11 @@ interface Fiable
     // void func2();
 }
 
+@FunctionalInterface
+interface AddTwo
+{
+    /* public abstract */ int add(int a,int b); 
+}
 
 public class App {
     public static void main(String[] args) {
@@ -29,5 +34,11 @@ public class App {
          Fiable f3 = (int a) -> System.out.println("in func 1"); // one line
          f3.func1(8);
 
+
+         AddTwo obj = (int a, int b) -> a+b; // one line no need to return
+
+         int result = obj.add(2, 15);
+
+        System.out.println(result);
     }
 }
