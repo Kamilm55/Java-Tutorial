@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/01-Data-types" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/02-Literals" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/03-Type-conversion" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/04-Assignment-operators" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/05-While-loop" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/06-Do-while-loop" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/07-OOP" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/08-Method-Overloading" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/09-2dim-arr" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/10-OOP-ArrayOfObjects" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/11-static-variable" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/12-static-block" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/13-static-block-2" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/14-static-method" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/15-Encapsulation" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/16-Getters-Setters" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/17-Constructor" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/18-parameterized-constructor" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/19-superAndThis-keywords" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/20-Inheritance" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/22-Inheritance2" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/23-Polymorphism" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/24-ObjectClass" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/25-InnerClass" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/26-AbstractClass" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/27-AnonymousClass" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/28-Interface" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/29-Enum" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/30-Lambda" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/31-Abstractions" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/32-Exceptions" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/33-ExceptionHandling" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/34-Exceptions3" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/35-UserInput" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/36-Threads" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/37-Collections" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/38-Generics" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
