@@ -8,6 +8,7 @@
       <module fileurl="file://$PROJECT_DIR$/DesignPatterns/DesignPatterns.iml" filepath="$PROJECT_DIR$/DesignPatterns/DesignPatterns.iml" />
       <module fileurl="file://$PROJECT_DIR$/FactoryDesign2/FactoryDesign2.iml" filepath="$PROJECT_DIR$/FactoryDesign2/FactoryDesign2.iml" />
       <module fileurl="file://$PROJECT_DIR$/FactoryVsAbstractFactory/FactoryVsAbstractFactory.iml" filepath="$PROJECT_DIR$/FactoryVsAbstractFactory/FactoryVsAbstractFactory.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FileOperationsPractice/FileOperationsPractice.iml" filepath="$PROJECT_DIR$/FileOperationsPractice/FileOperationsPractice.iml" />
       <module fileurl="file://$PROJECT_DIR$/FileOpreations/FileOpreations.iml" filepath="$PROJECT_DIR$/FileOpreations/FileOpreations.iml" />
       <module fileurl="file://$PROJECT_DIR$/Java-tutorial.iml" filepath="$PROJECT_DIR$/Java-tutorial.iml" />
     </modules>

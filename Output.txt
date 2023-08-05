@@ -1,0 +1,11 @@
+Word Frequency (It is not case-sensitive)
+ ------------------
+quick: 2
+lazy: 1
+jumps: 2
+over: 1
+brown: 2
+the: 3
+fox: 2
+dog: 1
+again: 1
