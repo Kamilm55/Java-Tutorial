@@ -15,10 +15,7 @@
 // Print with order and refactor it (create new repo and build new app writing clean code)
 //FIFO first in first out
 import java.io.*;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 
 public class Main {
@@ -43,17 +40,17 @@ public class Main {
 //            System.out.println("There is no such file");
 //        }
 //         WE can write this as following , this automatically close the file
-        try(FileWriter fWriter = new FileWriter(file);
-         BufferedWriter bWriter = new BufferedWriter(fWriter)){
-            bWriter.write("The quick brown fox jumps over the lazy dog. The quick brown fox jumps again.");
-//            bWriter.write("\nThe quick brown fox jumps over the lazy dog. The quick brown fox jumps again.");
-        }
-        catch (IOException e){
-            System.out.println("There is no such file");
-        }
+//        try(FileWriter fWriter = new FileWriter(file);
+//         BufferedWriter bWriter = new BufferedWriter(fWriter)){
+//            bWriter.write("The quick brown fox jumps over the lazy dog. The quick brown fox jumps again.");
+////            bWriter.write("\nThe quick brown fox jumps over the lazy dog. The quick brown fox jumps again.");
+//        }
+//        catch (IOException e){
+//            System.out.println("There is no such file");
+//        }
 
         List<String> words = new ArrayList<String>();
-        Set<String> processedWords = new HashSet<String>();// for unique print of words
+        Set<String> processedWords = new LinkedHashSet<>();// for unique print of words // FIFO
         try {
         FileReader fReader = new FileReader(file);
             BufferedReader bReader = new BufferedReader(fReader);
@@ -61,8 +58,13 @@ public class Main {
 
 
             while (line != null){
-                String  cleanedLine = line.replace(".", "");// delete all "."
+                String[] unusedSigns = {".",",","/","'", ";",":","/","-","+","*"};
+                String  cleanedLine = line;
+                for (String sign : unusedSigns) {
+                    cleanedLine = cleanedLine.replaceAll("\\Q" + sign + "\\E", ""); // \\Q and \\E to escape special characters
+                }
 //                cleanedLine = cleanedLine.trim();// remove all "" // it does not work
+
                 String[] wordsArr = cleanedLine.split(" ");
                 for(String word : wordsArr)
                     words.add(word);
