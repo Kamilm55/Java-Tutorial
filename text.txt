@@ -1,4 +1,2 @@
-The quick brown/ fox, jumps+*- over the lazy dog. The quick brown fox jumps again.
-
-
-The quick brown fox jumps again.
+Hello it is written by byte output stream 
+ 2nd row

@@ -9,5 +9,9 @@
         <module name="JDBC" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="JDBC-MAVEN" target="" />
+      <module name="jdbcMaven" target="20" />
+    </bytecodeTargetLevel>
   </component>
 </project>
