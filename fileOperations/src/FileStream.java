@@ -15,8 +15,6 @@ public class FileStream {
 //                if(c!=-1)
 //                System.out.print((char)c);
 //            }
-
-
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
