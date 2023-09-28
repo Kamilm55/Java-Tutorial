@@ -5,31 +5,136 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
-        int n = scanner.nextInt();
-        int flag = 0;
 
-        String s = String.valueOf(n);
-        StringBuilder stringBuilder = new StringBuilder(s);
-        int length = s.length();
-        for (int i = 0; i < length; i++) {
-          int digit = Integer.parseInt(String.valueOf(s.charAt(i)));
-            if(digit % 2 == 0){
-                stringBuilder.deleteCharAt(i);
-//                i--;
-                length--;
-                flag++;
-            }
-//                System.out.println(stringBuilder);
-//                System.out.println("index " + i);
-//            System.out.println("length " + length);
-        }
 
-        System.out.println(stringBuilder);
-//        System.out.println(s);
-        if (flag==0) System.out.println(0);
     }
 }
+/* Scanner scanner = new Scanner(System.in);
+        int sum = 0 ;
+
+        while (true) {
+            if (scanner.hasNextInt()) {
+                int a =scanner.nextInt();
+                sum += a;
+            } else break;
+        }
+
+        System.out.println(sum);
+        scanner.close();*/
+/*
+*  //513
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        int m = scanner.nextInt();
+
+
+//        8 * 6 % 5  =  3
+//        (a % m) * (b % m) % m = result
+
+        int factorial = 1;
+
+        for (int i = 1; i <= n; i++) {
+            factorial = ((factorial % m) * (i % m)) % m ;
+        }
+
+        System.out.println(factorial);
+*/
+/*
+* ///497 / uncompleted
+//        Scanner scanner = new Scanner(System.in);
+//        int t = scanner.nextInt();
+//
+//        for (int i = 0; i < t; i++) {
+//            int n = scanner.nextInt();
+//                for (int j = 0; j < n; j++) {
+//                    int a = scanner.nextInt();
+//                    int b = scanner.nextInt();
+//
+//                        for (int k = a; k <= b; k++) {
+//                            System.out.println(k);
+//                        }
+//                }
+////                    1 4
+////                    2 5
+////                    3 6
+////            System.out.println("YES");
+//        }
+//
+//
+//        scanner.close();*/
+/*
+*  //446
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        int count = 0;
+
+        for (int m = 1; m <= n; m++) {
+            int remainder = n % m;
+            int quotient = n / m ;
+            if(quotient == remainder)count++;
+        }
+
+        System.out.println(count);
+        scanner.close();
+* */
+/*
+//    421
+* Scanner scanner = new Scanner(System.in);
+        double I = scanner.nextInt();
+        int k = scanner.nextInt();
+        int changes = 0;
+
+
+        I = I / k;
+        while (I>1){
+            changes++;
+            I/=k;
+        }
+        System.out.println(changes);*/
+/*
+*  //419
+        Scanner scanner = new Scanner(System.in);
+
+        while (true){
+            if(scanner.hasNextInt()){
+                 int a = scanner.nextInt();
+                 int b = scanner.nextInt();
+
+                int maxChanges = 1;
+
+                for (int i = a; i <= b; i++) {
+
+                    int n = i;
+                    int changes = 1;
+                    while (n > 1){
+                        if(n%2==1) n = 3 * n + 1;
+                        else n = n / 2;
+                        changes++;
+                    }
+                    if(changes > maxChanges) maxChanges = changes;
+
+                }
+                    System.out.println(a + " " + b + " " + maxChanges);
+
+
+            }else break;// Exit the loop if there is no more input
+        }
+
+        scanner.close();
+*/
+/*
+* //388
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        int change = 0;
+
+        while (n > 1){
+            if(n%2==0) n/=2;
+            else n+=1;
+            change++;
+        }
+        System.out.println(change);
+*/
 /*
 * //        8681
         Scanner scanner = new Scanner(System.in);
