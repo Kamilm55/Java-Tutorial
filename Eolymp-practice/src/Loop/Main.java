@@ -1,14 +1,128 @@
 package Loop;
 
-import java.util.Scanner;
+    import java.util.Scanner;
+    public class Main {
+        public static void main(String[] args) {
+            Scanner input = new Scanner (System.in);
+            long numb = input.nextLong(); // 7
 
-public class Main {
-    public static void main(String[] args) {
-
-
-
+            long sum = 0;
+            long i = 1;
+            while(Math.pow(5, i) <= numb){
+                sum += (long) (numb / Math.pow(5, i));
+                i += 1;
+            }
+            System.out.println(sum);
+        }
     }
-}
+
+    /*//            2864
+            Scanner scanner = new Scanner(System.in);
+            double a = scanner.nextDouble();
+            double b = scanner.nextDouble();
+            double h = scanner.nextDouble();
+
+
+
+            for (double i = a; i <= b; i += h  ) {
+                double res = 3 * Math.sin(i);
+
+                System.out.printf("%.3f",i); // x
+                System.out.print(" ");
+                System.out.printf("%.3f",res); // y
+                System.out.println();
+            }
+
+
+            scanner.close();*/
+/*
+//            2863
+            Scanner scanner = new Scanner(System.in);
+            int n = scanner.nextInt();
+            int count = 0;
+
+            for (int i = 1; i <= n; i++) {
+                if(n%i==0 && i % 2 == 1) System.out.println(i);
+            }
+*/
+
+    /*//            2862
+            Scanner scanner = new Scanner(System.in);
+            int n = scanner.nextInt();
+            int count = 0;
+
+            for (int i = 1; i <= n; i++) {
+                if(n%i==0)count++;
+            }
+
+            System.out.println(count);*/
+    /*
+//        906
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        int mul = 1;
+
+        while (n>0){
+            mul*=n%10;
+            n/=10;
+        }
+        System.out.println(mul);
+*/
+
+/*//        123
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        int res = 1 ;
+        int count = 0 ;
+
+        for (int i = 1; i <= n; i++) {
+            res*=i;
+        }
+
+        while (res > 0){
+            if(res % 10 ==0)
+                count++;
+            else
+                break;
+            res/=10;
+        }
+
+        System.out.println(count);*/
+/*//        75
+        Scanner scanner = new Scanner(System.in);
+        int a = scanner.nextInt();
+        int m = scanner.nextInt();
+        int n = 0 ;
+
+        while (m>0){
+            if(m%2 == 0 &&  m/2 == 0){
+                a*=2;
+            }
+            m = m - a;
+            a++;
+            n++;
+        }
+        System.out.println(n - 1);*/
+/*
+//        20
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        int count = 0 ;
+
+
+        while (n>0){
+            count++;
+            int sumOfDigits = 0;
+            int copyN = n;
+                while (copyN > 0){
+                    sumOfDigits+=copyN%10;
+                    copyN/=10;
+                }
+            n = n - sumOfDigits;
+        }
+            System.out.println(count);
+*/
+
 /* Scanner scanner = new Scanner(System.in);
         int sum = 0 ;
 
