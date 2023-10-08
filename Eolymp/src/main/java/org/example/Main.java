@@ -5,6 +5,63 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
+
+    }
+}
+/*
+909
+Scanner scanner = new Scanner(System.in);
+
+        String sentence = scanner.nextLine();
+
+        String removedExtraSpaces = sentence.replaceAll("\\s+"," "); //more space to one space
+        String modifiedSen = removedExtraSpaces.replaceAll("^a-zA-z/\\s",""); // replace with "" means remove
+
+        String[] strArr = modifiedSen.split(" ");
+
+
+
+        System.out.println(strArr.length);*/
+/*
+901
+Scanner scanner = new Scanner(System.in);
+
+        String text = scanner.nextLine();
+
+
+        int count ;int plusCount=0;int minusCount=0;int subCount=0;int mulCount=0;
+        String[] textArr = text.split("");
+
+
+        for (int i = 0; i < textArr.length; i++) {
+            if(textArr[i].equals("+")  && plusCount != 1)
+                plusCount++;
+            else if( textArr[i].equals("-")&& minusCount != 1)
+                minusCount++;
+            else if( textArr[i].equals("/")&& subCount != 1 )
+                subCount++;
+            else if( textArr[i].equals("*") && mulCount != 1)
+                mulCount++;
+        }
+
+        count = plusCount + minusCount + subCount +mulCount;
+        System.out.println(count);*/
+/*
+494
+Scanner scanner = new Scanner(System.in);
+
+        String text = scanner.nextLine();
+            int count =0 ;
+        String[] textArr = text.split("");
+
+        for (int i = 0; i < textArr.length; i++) {
+            if(textArr[i].equals("A") || textArr[i].equals("E") || textArr[i].equals("I") || textArr[i].equals("O") || textArr[i].equals("U") || textArr[i].equals("Y") )
+                count++;
+        }
+        System.out.println(count);*/
+
+      /*
+        A
         Scanner scanner = new Scanner(System.in);
 
         String sentence = scanner.nextLine();
@@ -16,9 +73,7 @@ public class Main {
 
 
 
-        System.out.println(strArr.length);
-    }
-}
+        System.out.println(strArr.length);*/
 /*
 19
 Scanner scanner = new Scanner(System.in);
