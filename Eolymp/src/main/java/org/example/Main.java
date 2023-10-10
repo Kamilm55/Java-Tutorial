@@ -1,11 +1,41 @@
 package org.example;
 
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Main {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
 
+        String sentence = scanner.nextLine();
+        int count = 0;
 
+//        ! or . or ? => cumle bitdi
+        Pattern pattern = Pattern.compile("[a-zA-Z]");
+        Matcher matcher = pattern.matcher(sentence);
+
+        sentence = sentence.replaceAll("\\s+",""); // remove all spaces one or more
+
+        if(matcher.find()){
+            int i =0;
+            boolean isLastSign = false;
+            while (i<sentence.length()){
+                char c = sentence.charAt(i);
+                if((c == '!' || c == '.' || c == '?') && !isLastSign ){
+                    isLastSign = true;
+                    count++;
+                }
+                else if(c != '!' && c != '.' && c != '?') {
+                    isLastSign = false;
+                }
+                i++;
+            }
+            System.out.println(count);
+        }
+        else {
+            System.out.println(0);
+        }
     }
 }
 /*
