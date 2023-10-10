@@ -1,8 +1,22 @@
 package org.example.codechef;
 
-public class Main {
-    public static void main(String[] args) {
-        System.out.println(8*9);
-        System.out.println((100+200)*2);
+import java.util.*;
+
+class Codechef
+{
+    public static void main (String[] args)
+    {
+        Scanner read = new Scanner(System.in);
+        int num = read.nextInt();
+        int a = 0;
+        // Update your code below this line
+
+
+        while(a < num){
+            System.out.println(a);
+            a++;
+        }
+
     }
+
 }
