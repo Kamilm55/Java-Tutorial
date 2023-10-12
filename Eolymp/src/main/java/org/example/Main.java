@@ -1,43 +1,124 @@
 package org.example;
 
 import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        String input = scanner.nextLine();
+        scanner.close();
 
-        String sentence = scanner.nextLine();
-        int count = 0;
+        String cleanedInput = input.replaceAll(" ", "").toLowerCase();
+        String reversedString = String.valueOf(new StringBuilder(cleanedInput).reverse());
 
-//        ! or . or ? => cumle bitdi
-        Pattern pattern = Pattern.compile("[a-zA-Z]");
-        Matcher matcher = pattern.matcher(sentence);
-
-        sentence = sentence.replaceAll("\\s+",""); // remove all spaces one or more
-
-        if(matcher.find()){
-            int i =0;
-            boolean isLastSign = false;
-            while (i<sentence.length()){
-                char c = sentence.charAt(i);
-                if((c == '!' || c == '.' || c == '?') && !isLastSign ){
-                    isLastSign = true;
-                    count++;
-                }
-                else if(c != '!' && c != '.' && c != '?') {
-                    isLastSign = false;
-                }
-                i++;
-            }
-            System.out.println(count);
-        }
-        else {
-            System.out.println(0);
-        }
+        if(reversedString.equals(cleanedInput))
+            System.out.println("YES");
+        else
+            System.out.println("NO");
     }
 }
+
+/* Scanner scanner = new Scanner(System.in);
+        String input = scanner.nextLine();
+        scanner.close();
+
+        int[] numbers = new int[input.length()];
+
+        for (int i = 0; i < input.length(); i++) {
+            char digitChar = input.charAt(i);
+            if (Character.isDigit(digitChar)) {
+                numbers[i] = Character.getNumericValue(digitChar);
+            } else {
+                System.out.println("Invalid input. Please enter only digits.");
+                return;
+            }
+        }
+
+      int sum = 0;
+        for (int number : numbers) {
+            sum+= number;
+        }
+
+        if(sum%3==0)
+            System.out.println("YES");
+        else
+            System.out.println("NO");*/
+/*  Scanner scanner = new Scanner(System.in);
+        ArrayList<Integer> inputValues = new ArrayList<>();
+
+        int input;
+        while (true) {
+            input = scanner.nextInt();
+            if (input == 0) {
+                break;
+            }
+            inputValues.add(input);
+        }
+
+
+
+        for (int h : inputValues) {
+
+            for (int i = 1; i <= h ; i++) {
+                int numChars = 2 * i - 1;
+
+                for (int j = 0; j < h - i ; j++) {
+                    System.out.print(" ");
+                }
+
+                for (int j = 0; j < numChars; j++) {
+                    System.out.print("*");
+                }
+                System.out.println();
+            }
+            for (int i = h-1; i >0 ; i--) {
+                int numChars = 2 * i - 1;
+
+                for (int j = 0; j < h - i ; j++) {
+                    System.out.print(" ");
+                }
+
+                for (int j = 0; j < numChars; j++) {
+                    System.out.print("*");
+                }
+                System.out.println();
+            }
+            System.out.println();
+        }
+
+        scanner.close();*/
+
+/*  Scanner scanner = new Scanner(System.in);
+        String input = scanner.nextLine();
+        scanner.close();
+
+        String[] inputParts = input.split(" ");
+        char symbol = inputParts[0].charAt(0);
+        int h = Integer.parseInt(inputParts[1]);
+
+        int totalChars = 0;
+
+        for (int i = 1; i <= h; i++) {
+            int numChars = 2 * i - 1;
+            totalChars += numChars;
+            int spaces = h-i;
+            totalChars += spaces;
+        }
+        System.out.println(totalChars);
+
+        for (int i = 1; i <= h; i++) {
+            int numChars = 2 * i - 1;
+
+            for (int j = 0; j < h - i ; j++) {
+                System.out.print(" ");
+            }
+
+            for (int j = 0; j < numChars; j++) {
+                System.out.print(symbol);
+            }
+            System.out.println();
+        }
+        */
 /*
 909
 Scanner scanner = new Scanner(System.in);
