@@ -1,22 +1,134 @@
 package org.example;
-
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.Scanner;
 
-public class Main {
+class Solution{
+
+    public static void main(String[] args){
+        Scanner in = new Scanner(System.in);
+        while(in.hasNext()){
+            String IP = in.next();
+            System.out.println(IP.matches(new MyRegex().pattern));
+        }
+
+    }
+}
+
+//Write your code here
+class MyRegex
+{
+public static String pattern(){
+
+}
+}
+
+/*public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        int N = scanner.nextInt(); // Change N to the desired number of studied letters
+        generateGraffiti(N);
+    }
+
+    public static void generateGraffiti(int N) {
+
+        for (int i = 1; i <= N; i++) {
+        char letter = 'a'; // Start from letter 'a'
+            System.out.print("a");
+            for (int j = 0; j < N - i; j++) {
+                System.out.print( " ");
+            }
+            for (int j = 1; j <= i; j++) {
+                System.out.print(letter);
+                letter++; // Increment the letter based on the step
+            }
+            if (i < N) {
+                System.out.print(" "); // Add space between lines
+            }
+        System.out.println(); // Print a newline after the graffiti is generated
+        }
+
+    }
+}*/
+
+/* Scanner scanner = new Scanner(System.in);
+
+        String text1 = scanner.nextLine();
+        String text2 = scanner.nextLine();
+
+        int flag = 0;
+        List<String> arrayList = new ArrayList<>();
+        for (int i = 0; i < text1.length(); i++) {
+          arrayList.add(String.valueOf(text1.charAt(i)));
+        }
+
+        List<String> arrayList2 = new ArrayList<>();
+        for (int i = 0; i < text2.length(); i++) {
+            arrayList2.add(String.valueOf(text2.charAt(i)));
+        }
+
+        // Sort the lists
+        Collections.sort(arrayList);
+        Collections.sort(arrayList2);
+
+        if(arrayList2.size() != arrayList.size() )
+            System.out.println("NO");
+        else {
+            for (int i = 0; i < arrayList2.size(); i++) {
+                if(!arrayList2.get(i).equals(arrayList.get(i)) ){
+                    flag = 1;
+                    break;
+                }
+            }
+
+            if(flag == 0)
+                System.out.println("YES");
+            else
+                System.out.println("NO");
+        }*/
+/*  Scanner scanner = new Scanner(System.in);
+
+        String input = scanner.nextLine();
+
+        int number = scanner.nextInt();
+
+        List<Character> letters = new ArrayList<>();
+
+        for (int i = 0; i < input.length(); i++) {
+            char letter = input.charAt(i);
+            if (Character.isLetter(letter)) {
+                letters.add(letter);
+            }
+        }
+
+        // Print the list of letters
+        for (int i=0;i<letters.size();i++ ){
+            char letter = letters.get(i);
+            int letterCode = letter;
+
+            letterCode-=number;
+
+            if(letterCode < 65){
+                letterCode = 90 - (64 - letterCode) ;
+            }
+            char changedLetter = (char) letterCode;
+            letters.remove(i);
+            letters.add(i,changedLetter);
+        }
+
+        for (char l : letters) {
+            System.out.print(l);
+        }*/
+/* Scanner scanner = new Scanner(System.in);
         String input = scanner.nextLine();
         scanner.close();
-
         String cleanedInput = input.replaceAll(" ", "").toLowerCase();
         String reversedString = String.valueOf(new StringBuilder(cleanedInput).reverse());
 
         if(reversedString.equals(cleanedInput))
             System.out.println("YES");
         else
-            System.out.println("NO");
-    }
-}
+            System.out.println("NO");*/
 
 /* Scanner scanner = new Scanner(System.in);
         String input = scanner.nextLine();
