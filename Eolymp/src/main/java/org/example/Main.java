@@ -4,11 +4,55 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.List;
 
 class Main{
 
     public static void main(String[] args) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+
+        int n = Integer.parseInt(bufferedReader.readLine().trim());
+        String[] strList = new String[n];
+
+        for (int i = 0; i < n; i++) {
+            String str = bufferedReader.readLine().trim();
+            strList[i] = str;
+        }
+
+        for (int i = 0; i < strList.length; i++) {
+            String str = strList[i];
+            List<Character> listFirstStr = new ArrayList<>();
+            List<Character> listSecondStr = new ArrayList<>();
+            for (int j = 0; j < str.length(); j++) {
+                if(j % 2 == 0 ){
+                    System.out.println("cut");
+                    System.out.println(str.charAt(j));
+                    listFirstStr.add(str.charAt(j));
+                }
+                else{
+                    System.out.println("tek");
+                    System.out.println(str.charAt(j));
+                    listSecondStr.add(str.charAt(j));
+                }
+            }
+
+            System.out.println(listFirstStr);
+            System.out.println(listSecondStr);
+
+            for (Character character : listFirstStr) {
+                System.out.print( character + " ");
+            }
+
+            for (Character character : listSecondStr) {
+                System.out.print( character);
+            }
+            System.out.println();
+        }
+
+    }
+}
+ /* BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
         int N = Integer.parseInt(bufferedReader.readLine().trim());
 
@@ -17,10 +61,7 @@ class Main{
         else if (N >= 6 && N <= 20) System.out.println("Weird");
         else System.out.println("Not Weird");
 
-        bufferedReader.close();
-    }
-}
-
+        bufferedReader.close();*/
 /*BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         double meal_cost = Double.parseDouble(bufferedReader.readLine().trim());
 
