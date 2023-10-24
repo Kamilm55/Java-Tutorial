@@ -1,28 +1,64 @@
 package org.example;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import java.util.Scanner;
 
-class Solution{
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.math.BigInteger;
 
-    public static void main(String[] args){
-        Scanner in = new Scanner(System.in);
-        while(in.hasNext()){
-            String IP = in.next();
-            System.out.println(IP.matches(new MyRegex().pattern));
-        }
+class Main{
 
+    public static void main(String[] args) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+
+        int N = Integer.parseInt(bufferedReader.readLine().trim());
+
+        if (N % 2 == 1) System.out.println("Weird");
+        else if (N >= 2 && N <= 5) System.out.println("Not Weird");
+        else if (N >= 6 && N <= 20) System.out.println("Weird");
+        else System.out.println("Not Weird");
+
+        bufferedReader.close();
     }
 }
 
-//Write your code here
-class MyRegex
-{
-public static String pattern(){
+/*BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        double meal_cost = Double.parseDouble(bufferedReader.readLine().trim());
 
-}
-}
+        int tip_percent = Integer.parseInt(bufferedReader.readLine().trim());
 
+        int tax_percent = Integer.parseInt(bufferedReader.readLine().trim());
+
+        solve(meal_cost, tip_percent, tax_percent);
+
+        bufferedReader.close();
+
+    }
+    public static void solve(double meal_cost, int tip_percent, int tax_percent) {
+        // Write your code here
+
+        double tip = (meal_cost / 100) * tip_percent ;
+        double tax =  ((double) tax_percent / 100) * meal_cost;
+
+        double total_cost = meal_cost + tip + tax ;
+
+        System.out.println(Math.round(total_cost));
+    }*/
+/*  BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        BigInteger n1 = new BigInteger(bufferedReader.readLine());
+        BigInteger n2 = new BigInteger(bufferedReader.readLine());
+
+        System.out.println(n1.add(n2));
+        System.out.println(n1.multiply(n2));
+
+        bufferedReader.close();*/
+
+/*
+Hackerrank
+if (num.isProbablePrime(10)) {
+            System.out.println("prime");
+        } else {
+            System.out.println("not prime");
+        }*/
 /*public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
