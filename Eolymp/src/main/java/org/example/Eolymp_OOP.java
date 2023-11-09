@@ -6,44 +6,23 @@ class Eolymp_OOP{
     public static void main(String[] args) {
         ListOfPeople list = new ListOfPeople();
 
-        String[] input = {
-                "Person Ivanov Sergey 28",
-                "Teacher Petrov Ivan 34 Physics 400",
-                "Teacher Babayev Petr 28 Physics 450",
-                "Person Lenov Yuriy 21",
-                "Teacher Ermolov Kirill 44 Math 400",
-                "Teacher Fedoseev Nikita 38 Math 630",
-                "Teacher Egorova Dasha 32 Geography 450"
-        };
+        // Input data
+        list.add(new Person("Ivanov", "Sergey", 28));
+        list.add(new Teacher("Petrov", "Ivan", 34, "Physics", 400));
+        list.add(new Teacher("Babayev", "Petr", 28, "Physics", 450));
+        list.add(new Person("Lenov", "Yuriy", 21));
+        list.add(new Teacher("Ermolov", "Kirill", 44, "Math", 400));
+        list.add(new Teacher("Fedoseev", "Nikita", 38, "Math", 630));
+        list.add(new Teacher("Egorova", "Dasha", 32, "Geography", 450));
 
-        for (String personData : input) {
-            String[] parts = personData.split(" ");
-            String type = parts[0];
-
-            if (type.equals("Person")) {
-                String surname = parts[1];
-                String name = parts[2];
-                int age = Integer.parseInt(parts[3]);
-                Person person = new Person(surname, name, age);
-                list.add(person);
-            } else if (type.equals("Teacher")) {
-                String surname = parts[1];
-                String name = parts[2];
-                int age = Integer.parseInt(parts[3]);
-                String subject = parts[4];
-                int salary = Integer.parseInt(parts[5]);
-                Teacher teacher = new Teacher(surname, name, age, subject, salary);
-                list.add(teacher);
-            }
-        }
-
-        // Print the number and list of Teachers
-        System.out.println(list.GetNumberOfTeachers());
-        System.out.print(list.getTeachers());
-
-        // Print the number and list of People who are not Teachers
-        System.out.println(list.GetNumberOfNotTeachers());
-        System.out.print(list.getNotTeachers());
+        // Print total Teachers budget
+        System.out.println(list.getTeachersBudget());
+        // Print total Teachers budget who runs Maths
+        System.out.println(list.getTeachersBudget("Math"));
+        // Print average Teachers Salary
+        System.out.println(list.getTeachersAverageSalary());
+        // Print average Teachers Salary who runs Physics
+        System.out.println(list.getTeachersAverageSalary("Physics"));
     }
 }
 
@@ -71,31 +50,50 @@ class Teacher extends Person
         this.Salary = Salary;
         this.Subject = Subject;
     } // Constructor
+    Teacher(Teacher a){
+        super(a.Surname, a.Name, a.Age);
+        this.Salary = a.Salary;
+        this.Subject = a.Subject;
+    }
     public String toString(){
         return super.toString()  + " " + (Subject + " " + Salary);
     } // print Surname Name Age Subject Salary
+
+
 }
 
-class ListOfPeople
-{
+class ListOfPeople {
     String str = "";
     ArrayList<Person> a = new ArrayList<Person>();
+
     public void add(Person p) {
         a.add(p);
     }// Add person p to array list
+
     public int size() {
         return a.size();
     }// Return size of array list
-    public String toString(){
+
+    public String toString() {
 
         for (Person p : a) {
             str += p.toString() + "\n";
         }
-    return str;
+        return str;
 
     } // Print people in array list. Each person print in a separate line
 
-    public ListOfPeople getTeachers() {
+
+    public Teacher getTeacherWithMaxSalary() // Return Teacher with maximum Salary
+    public Teacher getTeacherWithMaxSalary(String Subject) // Return Teacher with maximum Salary who runs the subject Subject
+    public Teacher getTeacherWithMinSalary() // Return Teacher with minimum Salary
+    public Teacher getTeacherWithMinSalary(String Subject) // Return Teacher with minimum Salary who runs the subject Subject
+
+}
+
+
+////////////
+/* public ListOfPeople getTeachers() {
         ListOfPeople copyOfListPeople = new ListOfPeople();
 //        copyOfListPeople.a = this.a;
         copyOfListPeople.a.addAll(this.a);  // Create a copy of the ArrayList
@@ -105,11 +103,40 @@ class ListOfPeople
         return copyOfListPeople;
 
     }// Return the list of Teachers only
-    public int GetNumberOfTeachers(){
-    return getTeachers().size();
+
+    public int GetNumberOfTeachers() {
+        return getTeachers().size();
     }
     // Return the number of Teachers in the list
-    public ListOfPeople getNotTeachers() {
+
+
+    public ListOfPeople getTeachers(String Subject){
+        ListOfPeople listOfPeople = getTeachers();
+
+
+                ArrayList<Teacher> teacherList = new ArrayList<Teacher>();
+
+        for (Person person: listOfPeople.a) {
+            if(person instanceof Teacher ){
+                // Casting to Teacher
+                Teacher teacher = (Teacher)person;
+                teacherList.add(teacher);
+            }
+        }
+
+        teacherList.removeIf(t -> !t.Subject.equals(Subject));
+
+        ListOfPeople result = new ListOfPeople();
+        result.a.addAll(teacherList);
+        return result;
+
+    } // Return the list of Teachers who runs the subject Subject
+    public int GetNumberOfTeachers(String Subject) {
+        return getTeachers(Subject).size();
+    } // Return the number of Teachers who runs the subject Subject
+*/
+///////////
+/*    public ListOfPeople getNotTeachers() {
         ListOfPeople copyOfListPeople = new ListOfPeople();
 //        copyOfListPeople.a = this.a;
         copyOfListPeople.a.addAll(this.a);  // Create a copy of the ArrayList
@@ -119,9 +146,7 @@ class ListOfPeople
     } // Return the list of People who are not Teachers
     public int GetNumberOfNotTeachers() {
         return getNotTeachers().size();
-    }// Return the number of People who are not Teachers in the list
-}
-
+    }// Return the number of People who are not Teachers in the list*/
 
 
 
