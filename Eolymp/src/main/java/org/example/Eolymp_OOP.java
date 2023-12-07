@@ -16,13 +16,13 @@ class Eolymp_OOP{
         list.add(new Teacher("Egorova", "Dasha", 32, "Geography", 450));
 
         // Print total Teachers budget
-        System.out.println(list.getTeachersBudget());
-        // Print total Teachers budget who runs Maths
-        System.out.println(list.getTeachersBudget("Math"));
-        // Print average Teachers Salary
-        System.out.println(list.getTeachersAverageSalary());
-        // Print average Teachers Salary who runs Physics
-        System.out.println(list.getTeachersAverageSalary("Physics"));
+//        System.out.println(list.getTeachersBudget());
+//        // Print total Teachers budget who runs Maths
+//        System.out.println(list.getTeachersBudget("Math"));
+//        // Print average Teachers Salary
+//        System.out.println(list.getTeachersAverageSalary());
+//        // Print average Teachers Salary who runs Physics
+//        System.out.println(list.getTeachersAverageSalary("Physics"));
     }
 }
 
@@ -84,10 +84,10 @@ class ListOfPeople {
     } // Print people in array list. Each person print in a separate line
 
 
-    public Teacher getTeacherWithMaxSalary() // Return Teacher with maximum Salary
-    public Teacher getTeacherWithMaxSalary(String Subject) // Return Teacher with maximum Salary who runs the subject Subject
-    public Teacher getTeacherWithMinSalary() // Return Teacher with minimum Salary
-    public Teacher getTeacherWithMinSalary(String Subject) // Return Teacher with minimum Salary who runs the subject Subject
+//    public Teacher getTeacherWithMaxSalary() // Return Teacher with maximum Salary
+//    public Teacher getTeacherWithMaxSalary(String Subject) // Return Teacher with maximum Salary who runs the subject Subject
+//    public Teacher getTeacherWithMinSalary() // Return Teacher with minimum Salary
+//    public Teacher getTeacherWithMinSalary(String Subject) // Return Teacher with minimum Salary who runs the subject Subject
 
 }
 
