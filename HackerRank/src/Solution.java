@@ -1,5 +1,310 @@
 import java.io.*;
 import java.util.*;
+import java.lang.reflect.*;
+
+
+
+class FamilyMember {
+
+    @FamilyBudget(userRole = "SENIOR", budgetLimit = 100)
+    public void seniorMember(int budget, int moneySpend) {
+        System.out.println("Senior Member");
+        System.out.println("Spend: " + moneySpend);
+        System.out.println("Budget Left: " + (budget - moneySpend));
+    }
+
+    @FamilyBudget(userRole = "JUNIOR", budgetLimit = 50)
+    public void juniorUser(int budget, int moneySpend) {
+        System.out.println("Junior Member");
+        System.out.println("Spend: " + moneySpend);
+        System.out.println("Budget Left: " + (budget - moneySpend));
+    }
+}
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int testCases = Integer.parseInt(in.nextLine());
+        while (testCases > 0) {
+            String role = in.next();
+            int spend = in.nextInt();
+            try {
+                Class annotatedClass = FamilyMember.class;
+                Method[] methods = annotatedClass.getMethods();
+                for (Method method : methods) {
+                    if (method.isAnnotationPresent(FamilyBudget.class)) {
+                        FamilyBudget family = method
+                                .getAnnotation(FamilyBudget.class);
+                        String userRole = family.userRole();
+                        int budgetLimit = family.budgetLimit();
+                        if (userRole.equals(role)) {
+                            if(spend<=budgetLimit){
+                                method.invoke(FamilyMember.class.newInstance(),
+                                        budgetLimit, spend);
+                            }else{
+                                System.out.println("Budget Limit Over");
+                            }
+                        }
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            testCases--;
+        }
+    }
+}
+
+/*
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.lang.reflect.Method;
+import java.util.HashSet;
+import java.util.Set;
+
+class Prime {
+    void checkPrime(int... numbers) {
+        for (int num : numbers) {
+            if (isPrime(num)) {
+                System.out.print(num + " ");
+            }
+        }
+        System.out.println();
+    }
+
+    private boolean isPrime(int n) {
+        if (n <= 1) {
+            return false;
+        }
+        for (int i = 2; i <= Math.sqrt(n); i++) {
+            if (n % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+
+public class Solution {
+
+    public static void main(String[] args) {
+        try {
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+            int n1 = Integer.parseInt(br.readLine());
+            int n2 = Integer.parseInt(br.readLine());
+            int n3 = Integer.parseInt(br.readLine());
+            int n4 = Integer.parseInt(br.readLine());
+            int n5 = Integer.parseInt(br.readLine());
+            Prime ob = new Prime();
+            ob.checkPrime(n1);
+            ob.checkPrime(n1, n2);
+            ob.checkPrime(n1, n2, n3);
+            ob.checkPrime(n1, n2, n3, n4, n5);
+
+            Method[] methods = Prime.class.getDeclaredMethods();
+            Set<String> set = new HashSet<>();
+            boolean overload = false;
+            for (int i = 0; i < methods.length; i++) {
+                if (set.contains(methods[i].getName())) {
+                    overload = true;
+                    break;
+                }
+                set.add(methods[i].getName());
+            }
+            if (overload) {
+                throw new Exception("Overloading not allowed");
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+}
+*/
+
+
+/*
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.function.*;
+import java.util.regex.*;
+import java.util.stream.*;
+import static java.util.stream.Collectors.joining;
+import static java.util.stream.Collectors.toList;
+
+class Result {
+
+    */
+/*
+     * Complete the 'staircase' function below.
+     *
+     * The function accepts INTEGER n as parameter.
+     *//*
+
+
+    public static void staircase(int n) {
+        // Write your code here
+
+        for (int i = 1; i <= n; i++) {
+            for (int j = 0; j < n - i; j++) {
+                System.out.print(" ");
+            }
+            for (int j = 0; j < i; j++) {
+                System.out.print("#");
+            }
+
+            System.out.println();
+        }
+    }
+
+}
+
+public class Solution {
+    public static void main(String[] args) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+
+        int n = Integer.parseInt(bufferedReader.readLine().trim());
+
+        Result.staircase(n);
+
+        bufferedReader.close();
+    }
+}
+*/
+
+
+/*
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.function.*;
+import java.util.regex.*;
+import java.util.stream.*;
+import static java.util.stream.Collectors.joining;
+import static java.util.stream.Collectors.toList;
+
+class Result {
+
+    */
+/*
+     * Complete the 'equalizeArray' function below.
+     *
+     * The function is expected to return an INTEGER.
+     * The function accepts INTEGER_ARRAY arr as parameter.
+     *//*
+
+
+    public static int equalizeArray(List<Integer> arr) {
+        // Write your code here
+        int mostRepeatedCount = 0 ;
+
+        for (int i = 0; i < arr.size(); i++) {
+            int count = 0;
+
+            for (int j = 0; j <= i; j++) {
+               if(Objects.equals(arr.get(i), arr.get(j)))count++;
+            }
+
+            System.out.println(count);
+
+            if(count>mostRepeatedCount)mostRepeatedCount = count;
+
+        }
+
+        System.out.println();
+        System.out.println(mostRepeatedCount);
+        return  arr.size() - mostRepeatedCount;
+    }
+
+}
+
+public class Solution {
+    public static void main(String[] args) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+
+        int n = Integer.parseInt(bufferedReader.readLine().trim());
+
+        List<Integer> arr = Stream.of(bufferedReader.readLine().replaceAll("\\s+$", "").split(" "))
+                .map(Integer::parseInt)
+                .collect(toList());
+
+        int result = Result.equalizeArray(arr);
+
+        bufferedWriter.write(String.valueOf(result));
+        bufferedWriter.newLine();
+
+        bufferedReader.close();
+        bufferedWriter.close();
+    }
+}
+*/
+
+
+/*
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.function.*;
+import java.util.regex.*;
+import java.util.stream.*;
+import static java.util.stream.Collectors.joining;
+import static java.util.stream.Collectors.toList;
+
+class Result {
+
+    *//*
+     * Complete the 'aVeryBigSum' function below.
+     *
+     * The function is expected to return a LONG_INTEGER.
+     * The function accepts LONG_INTEGER_ARRAY ar as parameter.
+     *//*
+
+    public static long aVeryBigSum(List<Long> ar) {
+        // Write your code here
+        long sum = 0;
+        for (int i = 0; i < ar.size(); i++) {
+            sum += ar.get(i);
+        }
+
+        return sum;
+    }
+
+}
+
+public class Solution {
+    public static void main(String[] args) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+
+        int arCount = Integer.parseInt(bufferedReader.readLine().trim());
+
+        List<Long> ar = Stream.of(bufferedReader.readLine().replaceAll("\\s+$", "").split(" "))
+                .map(Long::parseLong)
+                .collect(toList());
+
+        long result = Result.aVeryBigSum(ar);
+
+        bufferedWriter.write(String.valueOf(result));
+        bufferedWriter.newLine();
+
+        bufferedReader.close();
+        bufferedWriter.close();
+    }
+}*/
+
+
+/*import java.io.*;
+import java.util.*;
 import java.text.*;
 import java.math.*;
 import java.util.regex.*;
@@ -23,7 +328,7 @@ public class Solution{
         // Print the result of 3 calls to Adder's `add(int,int)` method as 3 space-separated integers:
         System.out.print(a.add(10,32) + " " + a.add(10,3) + " " + a.add(10,10) + "\n");
     }
-}
+}*/
 
 /*
 import java.util.*;
