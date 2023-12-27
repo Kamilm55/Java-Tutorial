@@ -2,6 +2,8 @@ package CombinatorPattern;
 
 import ImperativeVsDeclarative.Person;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.function.Function;
 
 import static CombinatorPattern.ValidationServiceCombinator.ValidationResult.*;
@@ -34,9 +36,10 @@ public interface ValidationServiceCombinator extends Function<Person, Validation
 
     default ValidationServiceCombinator and(ValidationServiceCombinator other){
         return (person) -> {
-            ValidationResult result = this.apply(person);
-              return   result.equals(SUCCESS) ? other.apply(person) : result;
+            ValidationResult result = this.apply(person); // this -> instance of ValidationServiceCombinator
+              return  result.equals(SUCCESS) ? other.apply(person) : result; // result is ("USERNAME_IS_NOT_VALID,GENDER_IS_NOT_VALID,NOT_ADULT")
         };
     }
+
 
 }
