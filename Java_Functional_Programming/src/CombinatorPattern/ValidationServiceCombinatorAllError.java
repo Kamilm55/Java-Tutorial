@@ -9,6 +9,7 @@ import java.util.function.Function;
 
 import static CombinatorPattern.ValidationServiceCombinator.ValidationResult.SUCCESS;
 
+@Deprecated // NOT_WORKING
 public interface ValidationServiceCombinatorAllError extends Function<Person, List<ValidationResult>>
 {
     static ValidationServiceCombinatorAllError checkUsername() {
