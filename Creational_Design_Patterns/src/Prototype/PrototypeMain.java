@@ -49,9 +49,52 @@ public class PrototypeMain {
         Employee employee6 = employee1.clone();
         employee6.setRole(Role.Director);
 
+        Contractor contractor1 = new Contractor();/// it is similar to Employee
         // Learn: easily we can copy and increase flexible obj like dynamic (runtime) constructor
+        // todo: If we don't implemnt prototype pattern :
 
-        Contractor contractor1 = new Contractor();///
+        //        Employee employee1 = new Employee();
+        //        employee1.setFirstName("First Name 1");
+        //        employee1.setLastName("Last Name 1");
+        //        employee1.setAge(25);
+        //        employee1.setAddress("Employee Address 1");
+        //
+        //        Employee employee2 = new Employee();
+        //        employee2.setFirstName("First Name 2");
+        //        employee2.setLastName("Last Name 2");
+        //        employee2.setAge(28);
+        //        employee2.setAddress("Employee Address 2");
+        //        employee2.setDepartment(Department.ACCOUNTING);
+        //
+        //        Employee employee3 = new Employee();
+        //        employee3.setFirstName(employee2.getFirstName());
+        //        employee3.setLastName("Last name of copy employee 2 changed to Kamil");
+        //        employee3.setAge(employee2.getAge());
+        //        employee3.setAddress(employee2.getAddress());
+        //        employee3.setDepartment(employee2.getDepartment());
+        //
+        //        Employee employee4 = new Employee();
+        //        employee4.setFirstName(employee2.getFirstName());
+        //        employee4.setLastName("Last name of copy employee 4 changed to Samir");
+        //        employee4.setAge(employee2.getAge());
+        //        employee4.setAddress("address of copy employee 4 changed to New address");
+        //        employee4.setDepartment(Department.IT);
+        //
+        //        Employee employee5 = new Employee();
+        //        employee5.setFirstName(employee4.getFirstName());
+        //        employee5.setLastName(employee4.getLastName());
+        //        employee5.setAge(103);
+        //        employee5.setAddress(employee4.getAddress());
+        //        employee5.setDepartment(employee4.getDepartment());
+        //
+        //        Employee employee6 = new Employee();
+        //        employee6.setFirstName(employee1.getFirstName());
+        //        employee6.setLastName(employee1.getLastName());
+        //        employee6.setAge(employee1.getAge());
+        //        employee6.setAddress(employee1.getAddress());
+        //        employee6.setRole(Role.Director);
+
+
 
         employeesList.addAll(
                 List.of(employee1,employee2,employee3,employee4,employee5,employee6)
