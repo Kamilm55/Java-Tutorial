@@ -1,4 +1,6 @@
-package Prototype;
+package Prototype.DeepCopyVsShallowCopy;
+
+import Prototype.DeepCopyVsShallowCopy.Camera;
 
 public class DeepVsShallowCopy {
 

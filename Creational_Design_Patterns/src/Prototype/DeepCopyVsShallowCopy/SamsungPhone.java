@@ -1,4 +1,4 @@
-package Prototype;
+package Prototype.DeepCopyVsShallowCopy;
 
 public class SamsungPhone {
     public SamsungPhone() {
