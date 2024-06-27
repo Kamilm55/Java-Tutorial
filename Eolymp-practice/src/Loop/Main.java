@@ -1,5 +1,7 @@
 package Loop;
 
+import java.util.Scanner;
+
 public class Main {
     // determines the largest of three Comparable objects
 
@@ -19,16 +21,29 @@ public class Main {
     public static void main(String args[]) {
 
 
-        System.out.printf("Max of %d, %d and %d is %d\n\n",
-                3, 4, 5, maximum( 3, 4, 5 ));
+        Scanner scanner = new Scanner(System.in);
 
-        System.out.printf("Max of %.1f,%.1f and %.1f is %.1f\n\n",
-                6.6, 8.8, 7.7, maximum( 6.6, 8.8, 7.7 ));
+        String expression = scanner.nextLine();
 
-        System.out.printf("Max of %s, %s and %s is %s\n","pear",
-                "apple", "orange", maximum("pear", "apple", "orange"));
+        String[] expr = expression.split("");
+        int count=0;
 
-        System.out.printf("Max of %s, %s and %s is %s\n","s","t","y",maximum("s","t","y"));
+        for (int i = 1; i < expr.length; i++) {
+            if(expr[i].equals("+") || expr[i].equals("*") || expr[i].equals("-") )
+                count++;
+        }
+
+        System.out.println(count);
+//        System.out.printf("Max of %d, %d and %d is %d\n\n",
+//                3, 4, 5, maximum( 3, 4, 5 ));
+//
+//        System.out.printf("Max of %.1f,%.1f and %.1f is %.1f\n\n",
+//                6.6, 8.8, 7.7, maximum( 6.6, 8.8, 7.7 ));
+//
+//        System.out.printf("Max of %s, %s and %s is %s\n","pear",
+//                "apple", "orange", maximum("pear", "apple", "orange"));
+//
+//        System.out.printf("Max of %s, %s and %s is %s\n","s","t","y",maximum("s","t","y"));
     }
 }
  class Box<T> {
