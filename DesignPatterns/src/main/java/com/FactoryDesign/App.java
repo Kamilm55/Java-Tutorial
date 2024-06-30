@@ -8,6 +8,8 @@
 package com.FactoryDesign;
 
 import com.FactoryDesign.Phones.*;
+import jdk.jshell.spi.ExecutionControl;
+
 // Abstract Product
 interface Food {
     void prepare();
@@ -139,6 +141,7 @@ interface Button {
 }
 
 class WindowsButton implements Button {
+    public String name;
     public void paint(String btnType) {
         System.out.println("Rendering a button in Windows style.");
     }
@@ -185,24 +188,50 @@ class LinuxCheckbox implements Checkbox {
 
 interface TextField {
     void paint();
+  //  void expand(); // we must force all subclasses implement expand, however imagine linux does not support or does not need this feature why it must implement
+}
+interface ExpandableTextField{
+    void expand(); // ISP
 }
 
-class WindowsTextField implements TextField {
+
+class WindowsTextField implements TextField, ExpandableTextField {
+    @Override
     public void paint() {
         System.out.println("Rendering a text field in Windows style.");
     }
+
+    @Override
+    public void expand() {
+        System.out.println("Rendering an expandable text field in Windows style.");
+    }
 }
 
-class MacTextField implements TextField {
+class MacTextField implements TextField, ExpandableTextField {
+    @Override
     public void paint() {
         System.out.println("Rendering a text field in Mac style.");
+    }
+
+    @Override
+    public void expand() {
+        System.out.println("Rendering an expandable text field in Mac style.");
     }
 }
 
 class LinuxTextField implements TextField {
+    @Override
     public void paint() {
         System.out.println("Rendering a text field in Linux style.");
     }
+
+//    @Override
+//    public void expand() {
+//        // throw new UnsupportedOperationException();
+//        violates LSP --> when we call it cause error, because we have no info about it, simply if this is not supported not implement, instead implement ISP -> Interface Segregation
+//       "should be replaceable with objects of a subclass without affecting the functionality of the program" --> if I change linuxType textField into this which is the same interface implemented App crashes for exception. Solution -> ISP
+//    }
+
 }
 
 interface GUIFactory {
@@ -285,22 +314,53 @@ class App
         // YouTube explanation -> https://www.youtube.com/watch?v=v-GiuMmsXj4&t=20s
         // S,SRP +
         // O,OCP +
-        // L,LSP -  --> It states that objects of a superclass should be replaceable with objects of a subclass without affecting the functionality of the program. This principle ensures that a subclass can stand in for its superclass without the need for modification
-        // I,ISP -  --> Interface Segregation Principle -> This principle states that no client should be forced to depend on methods it does not use. Instead of one fat interface, multiple small and specific interfaces are preferred. This avoids the implementation of unnecessary methods in a class, leading to more maintainable and modular code
+        // L,LSP +  --> It states that objects of a superclass should be replaceable with objects of a subclass without affecting the functionality of the program. This principle ensures that a subclass can stand in for its superclass without the need for modification
+        // I,ISP +  --> Interface Segregation Principle -> This principle states that no client should be forced to depend on methods it does not use. Instead of one fat interface, multiple small and specific interfaces are preferred. This avoids the implementation of unnecessary methods in a class, leading to more maintainable and modular code
         // D,DIP +
-        // Encapsulation, Inheritance, Polymorphism, Abstraction, DRY +
+        // Encapsulation, Inheritance, Polymorphism(runtime -> method overriding), Abstraction, DRY +
         // Polymorphism --> I have defined interfaces Button, Checkbox, TextField, and GUIFactory. Each concrete class implements one of these interfaces. This is where polymorphism comes into play. For example, WindowsButton, MacButton, and LinuxButton all implement the Button interface. buttons with same type (Button interface) can operate differently from one another
+
+//      Learn:
+//        Key Points of Polymorphism in Your Code
+//        Factory Creation: The GUIFactory interface is used to create concrete instances of Button, Checkbox, and TextField. The concrete factory used (WindowsFactory, MacFactory, LinuxFactory) "is decided at runtime" "based on the operating system".
+//        Interface Usage: The App class works with Button, Checkbox, and TextField interfaces, allowing it "to remain unaware of the specific implementations". This is a direct application of polymorphism.
+//        Method Overriding: Each concrete class (e.g., WindowsButton, MacButton) overrides the methods defined in the Button interface, "providing specific behavior for each type" of button.
+//
+//        By using polymorphism, your code adheres to the Open/Closed Principle (OCP), "making it easy to extend the system with new types of buttons, checkboxes, or text fields without modifying the existing code". This results in a more flexible and maintainable codebase.
 
         // todo: Implementing LSP -> add feature that some subclass of interface does not support and throw exception which violates lsp
         //  --> then refactor with separating more flexible interfaces
 
         // todo: Implementing ISP -> add some methods to components and implement multiple small interfaces -> only needed interfaces must be implemented
 
-        // QUESTION: We can achieve clean code with changing products type to interface from concrete class, why we need factories?
+        // Signs Indicating Use of Abstract Factory
+        //
+        //Multiple Families of Products
+        //If your application needs to create multiple families of related products, each with a similar interface, but different implementations.
+        //
+        //Platform Independence
+        //If your application must support multiple platforms or environments and you want to encapsulate the platform-specific implementation details.
+        //
+        //Consistency Among Products
+        //If consistency among related products is crucial (e.g., UI components in a theme), ensuring that all related products are created by a single factory.
+        //
+        //Runtime Flexibility
+        //If you need the flexibility to switch between different product families at runtime based on configuration or runtime conditions.
+        //
+        //Complex Object Creation
+        //If the creation process of related objects is complex and should be centralized to avoid duplication and to ensure maintainability.
+
+
+        // QUESTION:  If I use an interface as a type, I won't be able to directly access the specific fields of the implementing classes.
+        //  In scenarios where I need to access fields specific to the concrete classes what can i do? (without tight couple)
+        // For Flexibility and Extensibility: --> but complex fo small projects
+        //  Visitor Pattern is often the best choice. It provides a flexible way to perform operations on entities and is well-suited for scenarios where operations vary and change frequently.
 
         App app = new App();
         String os = System.getProperty("os.name").toLowerCase();
-        app.createUiInIdealCode(os);
+
+        // Without factory but with interface type partial abstraction
+        app.createUiInIdealCodeWithoutFactory(os);
         app.IdealInOtherMethod1(os);
         app.IdealInOtherMethod2();
 
@@ -310,6 +370,54 @@ class App
         app.NotIdealInOtherMethod2(os);
 
         app.paint();
+
+        // QUESTION: We can achieve clean code with changing products type to interface from concrete class, why we need factories?
+        //  ANSWER: DRY, encapsulation, polymorphism
+        // With factory complete abstraction
+        app.createUiInIdealCodeWithFactory(os);
+    }
+    public void createUiInIdealCodeWithFactory(String os) {
+        // SRP
+        // responsibility 1: Which os currently use
+
+        GUIFactory guiFactory;
+
+        if (os.contains("win")) {
+            guiFactory = new WindowsFactory();
+
+        } else if (os.contains("mac")) {
+            guiFactory = new MacFactory();
+        }
+        // Adding linux
+        else if (os.contains("linux")) {
+            guiFactory = new LinuxFactory();
+        } else {
+            throw new UnsupportedOperationException("Unsupported OS");
+        }
+
+        button = guiFactory.createButton();
+        checkbox = guiFactory.createCheckbox();
+        textField = guiFactory.createTextField();
+
+        // Encapsulation and dry --> if we want to send to other methods in other classes we don't need to send components separately we only send Factory concreteFactory
+        otherMethodInIdealCodeWithFactory(guiFactory);
+    }
+
+    private void otherMethodInIdealCodeWithFactory(GUIFactory guiFactory) {
+        Button button1 = guiFactory.createButton();// without knowing factory type it returns required component type
+        Checkbox checkbox1 = guiFactory.createCheckbox();
+
+        // QUESTION: Why direct instantiation with "new" keyword cause tight coupling?
+        //  ANSWER: For creating required class we must know and we must define Class
+        //  but in this case we don't know actual type of concrete class, however we can create required class with type of interface.
+        //  violation of ocp -> if we modify guiFactory we must modify in creation "new WindowsFactory()" to  "new LinuxFactory()" --> close for modification
+        //  -> we can only change in one place, and using this factory we use only interface type which is concrete Class type, whenever change it changes automatically (runtime polymorphism)
+
+        // Polymorphism: we don't need to know specific info about in all app what is guiFactory type
+        // for ex: if guiFactory is set to "Linux" we just say create button because of instantiation of button not define we achieve complete abstraction
+        // if we don't use ->
+        Button buttonInAllApp = new WindowsButton(); // actually I don't know os info --> I must additional check os which violates SRP,DRY
+
     }
 
     private void IdealInOtherMethod2() {
@@ -454,7 +562,7 @@ class App
         }
     }
 
-    public void createUiInIdealCode(String os) {
+    public void createUiInIdealCodeWithoutFactory(String os) {
 
         //Learn: There are already have 3 variables with type of interface (Button,Checkbox,TextField)  --> We can change this for requirements, for ex: if our need for Linux
         // all components can inject for this type (with interface abstraction) --> inside not ideal code we cannot change easily
